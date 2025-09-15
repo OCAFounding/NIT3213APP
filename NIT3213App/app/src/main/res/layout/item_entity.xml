@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_entity.xml - RecyclerView Item Layout
+    
+    This layout defines the appearance of each item in the entity list.
+    It displays a summary of the entity with property1 and property2.
+    
+    Key Concepts:
+    - LinearLayout for vertical arrangement
+    - Clickable item with ripple effect
+    - TextViews for displaying entity data
+    - Material Design styling
+    
+    Assignment Requirements:
+    - Shows entity summary (property1 and property2)
+    - Excludes description (shown in details screen)
+    - Clickable for navigation to details
+    - Clean, readable layout
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground">
+
+    <!--
+        PROPERTY 1
+        Primary property of the entity
+    -->
+    <TextView
+        android:id="@+id/tvProp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface" />
+
+    <!--
+        PROPERTY 2
+        Secondary property of the entity
+    -->
+    <TextView
+        android:id="@+id/tvProp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:layout_marginTop="4dp" />
+
+</LinearLayout>

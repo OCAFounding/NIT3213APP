@@ -1,0 +1,106 @@
+<!--
+    themes.xml - Theme Resources for NIT3213App
+    
+    This file defines the visual theme and styling for the entire application.
+    Themes control the appearance of UI components like colors, fonts, and styles.
+    
+    Key Concepts:
+    - Material Design 3 theming system
+    - Day/Night theme support
+    - Color roles and semantic naming
+    - Theme inheritance and customization
+    
+    Material Design 3 Color Roles:
+    - Primary: Main brand color
+    - Secondary: Accent color
+    - Surface: Background colors
+    - On*: Colors for content on colored backgrounds
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    
+    <!--
+        MAIN APPLICATION THEME
+        This is the primary theme applied to all activities in the app
+    -->
+    <style name="Theme.NIT3213App" parent="Theme.Material3.DayNight">
+        
+        <!--
+            PRIMARY COLOR SCHEME
+            Primary colors define the main brand identity of the app
+        -->
+        
+        <!-- Primary brand color - used for main UI elements like buttons, app bar -->
+        <item name="colorPrimary">@color/purple_500</item>
+        
+        <!-- Primary variant - darker shade of primary color -->
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        
+        <!-- Color for content (text, icons) placed on primary color background -->
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!--
+            SECONDARY COLOR SCHEME
+            Secondary colors provide accent and highlight elements
+        -->
+        
+        <!-- Secondary brand color - used for accent elements -->
+        <item name="colorSecondary">@color/teal_200</item>
+        
+        <!-- Secondary variant - darker shade of secondary color -->
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        
+        <!-- Color for content placed on secondary color background -->
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <!--
+            SYSTEM UI CUSTOMIZATION
+            Customize system-level UI elements
+        -->
+        
+        <!-- Status bar color - the bar at the top of the screen -->
+        <!-- tools:targetApi="l" means this only applies to API level 21+ (Lollipop) -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+        <!--
+            ADDITIONAL THEME CUSTOMIZATIONS
+            You can add more theme customizations here:
+            
+            <!-- Navigation bar color (bottom bar with back/home/recent buttons) -->
+            <!-- <item name="android:navigationBarColor">@color/black</item> -->
+            
+            <!-- Window background color -->
+            <!-- <item name="android:windowBackground">@color/white</item> -->
+            
+            <!-- Text color for primary text -->
+            <!-- <item name="android:textColorPrimary">@color/black</item> -->
+            
+            <!-- Text color for secondary text -->
+            <!-- <item name="android:textColorSecondary">@color/gray_600</item> -->
+            
+            <!-- Action bar style -->
+            <!-- <item name="actionBarStyle">@style/CustomActionBarStyle</item> -->
+        -->
+    </style>
+    
+    <!--
+        ADDITIONAL THEMES FOR FUTURE USE:
+        
+        <!-- Dark theme variant -->
+        <!-- <style name="Theme.NIT3213App.Dark" parent="Theme.Material3.DayNight"> -->
+        <!--     <item name="colorPrimary">@color/purple_200</item> -->
+        <!--     <item name="colorOnPrimary">@color/black</item> -->
+        <!-- </style> -->
+        
+        <!-- Custom button style -->
+        <!-- <style name="CustomButtonStyle" parent="Widget.Material3.Button"> -->
+        <!--     <item name="android:textSize">16sp</item> -->
+        <!--     <item name="android:textStyle">bold</item> -->
+        <!-- </style> -->
+        
+        <!-- Custom text view style -->
+        <!-- <style name="CustomTextViewStyle" parent="Widget.Material3.TextView"> -->
+        <!--     <item name="android:textSize">14sp</item> -->
+        <!--     <item name="android:lineSpacingExtra">4dp</item> -->
+        <!-- </style> -->
+    -->
+</resources>

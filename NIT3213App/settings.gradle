@@ -1,0 +1,37 @@
+/**
+ * Settings file for NIT3213App
+ * This file configures the project structure and dependency repositories
+ * It tells Gradle which modules are part of this project and where to find dependencies
+ */
+
+// Plugin management configuration - defines where to find Gradle plugins
+pluginManagement {
+    repositories {
+        // Google's Maven repository - contains Android and Google libraries
+        google()
+        // Maven Central - the main repository for Java/Kotlin libraries
+        mavenCentral()
+        // Gradle Plugin Portal - official repository for Gradle plugins
+        gradlePluginPortal()
+    }
+}
+
+// Dependency resolution management - configures where to find project dependencies
+dependencyResolutionManagement {
+    // FAIL_ON_PROJECT_REPOS means if a module tries to define its own repositories,
+    // the build will fail. This ensures all dependencies come from the central repositories
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // Google's Maven repository - for Android SDK and Google Play Services
+        google()
+        // Maven Central - for third-party libraries
+        mavenCentral()
+    }
+}
+
+// Project name - this is the name of your Android project
+rootProject.name = "NIT3213App"
+
+// Include the app module - this tells Gradle that the 'app' folder is a module
+// You can add more modules here if you create them (e.g., ':library', ':feature')
+include ':app'

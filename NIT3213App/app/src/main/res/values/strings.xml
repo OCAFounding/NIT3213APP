@@ -1,0 +1,35 @@
+<!--
+    strings.xml - String Resources for NIT3213App
+    
+    This file contains all the text strings used in the application.
+    Storing strings in a separate resource file is a best practice because:
+    
+    1. Internationalization (i18n) - Easy to translate to different languages
+    2. Consistency - Same strings used throughout the app
+    3. Maintainability - Change text in one place, updates everywhere
+    4. Separation of concerns - UI logic separate from content
+    
+    Usage in code: getString(R.string.app_name)
+    Usage in XML: @string/app_name
+-->
+<resources>
+    <!--
+        Application Name
+        This string is used in:
+        - AndroidManifest.xml (android:label)
+        - App launcher icon label
+        - Settings > Apps list
+    -->
+    <string name="app_name">NIT3213App</string>
+    
+    <!--
+        Additional strings can be added here as the app grows:
+        
+        <string name="welcome_message">Welcome to NIT3213!</string>
+        <string name="button_click_me">Click Me!</string>
+        <string name="click_count_format">Button clicked %d times</string>
+        
+        Note: For strings with placeholders, use format strings:
+        <string name="user_greeting">Hello, %1$s! You have %2$d messages.</string>
+    -->
+</resources>

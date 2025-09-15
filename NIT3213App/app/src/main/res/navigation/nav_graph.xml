@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Navigation graph for NIT3213App
+    
+    This file defines the navigation structure of the app using the Navigation component.
+    It includes all three required screens: Login, Dashboard, and Details.
+    
+    Key Concepts:
+    - Navigation component for screen navigation
+    - Safe Args for type-safe navigation
+    - Single-activity architecture
+    - Fragment-based navigation
+    
+    Assignment Requirements:
+    - Login screen as start destination
+    - Dashboard screen with RecyclerView
+    - Details screen with entity information
+    - Navigation between all screens
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!--
+        LOGIN FRAGMENT
+        Entry point of the application
+        Allows user to select campus and enter credentials
+    -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.nit3213app.ui.login.LoginFragment"
+        android:label="Login">
+        
+        <!-- Action to navigate to dashboard on successful login -->
+        <action
+            android:id="@+id/action_login_to_dashboard"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
+    <!--
+        DASHBOARD FRAGMENT
+        Displays list of entities from API
+        Shows total count and allows navigation to details
+    -->
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.nit3213app.ui.dashboard.DashboardFragment"
+        android:label="Dashboard">
+        
+        <!-- Action to navigate to details screen -->
+        <action
+            android:id="@+id/action_dashboard_to_details"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <!--
+        DETAILS FRAGMENT
+        Shows detailed information about selected entity
+        Receives entity data via Safe Args
+    -->
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.nit3213app.ui.details.DetailsFragment"
+        android:label="Details">
+        
+        <!-- Argument to receive selected entity -->
+        <argument
+            android:name="entity"
+            app:argType="com.example.nit3213app.domain.model.EntityModel" />
+    </fragment>
+</navigation>

@@ -1,0 +1,35 @@
+/**
+ * Top-level build file for NIT3213App
+ * This file contains configuration options that are common to all sub-projects/modules
+ * in the Android project. It's the root-level Gradle configuration.
+ */
+
+// Buildscript block for plugins that need to be applied at the project level
+buildscript {
+    dependencies {
+        // Hilt dependency injection plugin
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.52'
+        // Navigation Safe Args plugin for type-safe navigation
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.8.3'
+    }
+}
+
+// Plugin declarations - these define what build tools are available
+// 'apply false' means the plugins are available but not applied to this specific module
+plugins {
+    // Android Application plugin - enables building Android apps
+    id 'com.android.application' version '8.1.4' apply false
+    // Android Library plugin - enables building Android libraries
+    id 'com.android.library' version '8.1.4' apply false
+    // Kotlin Android plugin - enables Kotlin language support for Android
+    id 'org.jetbrains.kotlin.android' version '1.9.10' apply false
+}
+
+/**
+ * Custom Gradle task to clean the project
+ * This task deletes the build directory, removing all compiled files
+ * Useful for performing a clean build when you want to start fresh
+ */
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml - Main Layout for NIT3213App
+    
+    This layout contains a single FragmentContainerView that hosts the Navigation component.
+    It follows the single-activity architecture pattern where all navigation happens
+    through fragments managed by the Navigation component.
+    
+    Key Concepts:
+    - FragmentContainerView for hosting fragments
+    - Navigation component integration
+    - Single-activity architecture
+    - Fragment-based navigation
+    
+    Assignment Requirements:
+    - Hosts Navigation component for fragment navigation
+    - Supports all three screens (Login, Dashboard, Details)
+    - Follows modern Android architecture patterns
+-->
+<androidx.fragment.app.FragmentContainerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    
+    <!-- Unique identifier for the navigation host -->
+    android:id="@+id/nav_host_fragment"
+    
+    <!-- Fill the entire screen -->
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    <!-- Enable default navigation host behavior -->
+    app:defaultNavHost="true"
+    
+    <!-- Specify the NavHostFragment class -->
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    
+    <!-- Reference to the navigation graph -->
+    app:navGraph="@navigation/nav_graph" />

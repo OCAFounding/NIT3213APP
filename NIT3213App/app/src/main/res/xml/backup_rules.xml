@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    backup_rules.xml - Backup Rules for NIT3213App
+    
+    This file defines what data should be included in automatic backups.
+    Android automatically backs up app data to Google Drive when:
+    - User has backup enabled in device settings
+    - App is installed on a new device
+    - User restores from backup
+    
+    IMPORTANT: This file is only used on devices with API 31+ (Android 12+)
+    For older devices, backup behavior is controlled by android:allowBackup in AndroidManifest.xml
+    
+    Documentation: https://developer.android.com/guide/topics/data/autobackup
+-->
+<full-backup-content>
+    <!--
+        BACKUP RULES CONFIGURATION
+        
+        By default, Android backs up most app data including:
+        - SharedPreferences
+        - Internal storage files
+        - Database files
+        - Cache files (excluded by default)
+        
+        You can customize what gets backed up using include/exclude rules:
+    -->
+    
+    <!--
+        EXAMPLE RULES (currently commented out):
+        
+        <!-- Include all SharedPreferences files -->
+        <!-- <include domain="sharedpref" path="."/> -->
+        
+        <!-- Exclude specific SharedPreferences file -->
+        <!-- <exclude domain="sharedpref" path="device.xml"/> -->
+        
+        <!-- Include specific database -->
+        <!-- <include domain="database" path="user_data.db"/> -->
+        
+        <!-- Exclude cache directory -->
+        <!-- <exclude domain="file" path="cache/"/> -->
+        
+        <!-- Exclude temporary files -->
+        <!-- <exclude domain="file" path="temp/"/> -->
+    -->
+    
+    <!--
+        DOMAIN TYPES:
+        - sharedpref: SharedPreferences files
+        - database: SQLite database files  
+        - file: Regular files in internal storage
+        - external: Files in external storage
+        - root: Root directory files
+        
+        PATH PATTERNS:
+        - "." = all files in domain
+        - "filename" = specific file
+        - "directory/" = all files in directory
+        - "*.extension" = files with specific extension
+    -->
+</full-backup-content>

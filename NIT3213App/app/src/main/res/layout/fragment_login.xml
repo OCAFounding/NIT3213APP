@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_login.xml - Login Screen Layout
+    
+    This layout provides the user interface for the login screen.
+    It includes campus selection, username/password input, and login button.
+    
+    Key Concepts:
+    - ScrollView for keyboard handling
+    - LinearLayout for vertical arrangement
+    - Spinner for campus selection
+    - EditText for user input
+    - Button for login action
+    - ProgressBar for loading state
+    - TextView for error messages
+    
+    Assignment Requirements:
+    - Campus selection (footscray, sydney, br)
+    - Username input (first name)
+    - Password input (Student ID without 's')
+    - Login button
+    - Error handling display
+    - Loading state indication
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!--
+            CAMPUS SELECTION
+            Spinner for selecting campus location
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Campus:"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerCampus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <!--
+            USERNAME INPUT
+            EditText for entering first name
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username (First Name):"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your first name"
+            android:inputType="textPersonName"
+            android:layout_marginTop="8dp" />
+
+        <!--
+            PASSWORD INPUT
+            EditText for entering Student ID
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password (Student ID):"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Student ID (no 's')"
+            android:inputType="number"
+            android:layout_marginTop="8dp" />
+
+        <!--
+            LOGIN BUTTON
+            Button to initiate login process
+        -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="24dp" />
+
+        <!--
+            LOADING INDICATOR
+            ProgressBar shown during login process
+        -->
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <!--
+            ERROR MESSAGE
+            TextView for displaying error messages
+        -->
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>

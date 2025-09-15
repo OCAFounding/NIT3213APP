@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_details.xml - Details Screen Layout
+    
+    This layout provides the user interface for the details screen.
+    It displays all information about the selected entity including the description.
+    
+    Key Concepts:
+    - ScrollView for long content
+    - LinearLayout for vertical arrangement
+    - TextViews for displaying entity data
+    - Material Design styling
+    
+    Assignment Requirements:
+    - Shows all entity information
+    - Displays property1, property2, and description
+    - User-friendly layout
+    - Scrollable for long descriptions
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!--
+            PROPERTY 1
+            Primary property of the entity
+        -->
+        <TextView
+            android:id="@+id/tvProp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface" />
+
+        <!--
+            PROPERTY 2
+            Secondary property of the entity
+        -->
+        <TextView
+            android:id="@+id/tvProp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:layout_marginTop="8dp" />
+
+        <!--
+            DESCRIPTION
+            Detailed description of the entity
+        -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="4dp" />
+
+    </LinearLayout>
+</ScrollView>

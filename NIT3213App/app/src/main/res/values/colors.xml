@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    colors.xml - Color Resources for NIT3213App
+    
+    This file defines the color palette used throughout the application.
+    Defining colors as resources provides several benefits:
+    
+    1. Consistency - Same colors used across the entire app
+    2. Theming - Easy to change app colors by modifying this file
+    3. Material Design - Follows Google's Material Design color guidelines
+    4. Maintainability - Centralized color management
+    
+    Color Format: #AARRGGBB
+    - AA: Alpha (transparency) - FF = opaque, 00 = transparent
+    - RR: Red component (00-FF)
+    - GG: Green component (00-FF)  
+    - BB: Blue component (00-FF)
+    
+    Usage in code: ContextCompat.getColor(context, R.color.purple_500)
+    Usage in XML: @color/purple_500
+-->
+<resources>
+    <!--
+        PURPLE COLOR PALETTE
+        Purple is the primary color for this app, following Material Design guidelines
+    -->
+    
+    <!-- Purple 200 - Light purple, used for secondary elements -->
+    <color name="purple_200">#FFBB86FC</color>
+    
+    <!-- Purple 500 - Primary purple, main brand color -->
+    <color name="purple_500">#FF6200EE</color>
+    
+    <!-- Purple 700 - Dark purple, used for primary elements on light backgrounds -->
+    <color name="purple_700">#FF3700B3</color>
+    
+    <!--
+        TEAL COLOR PALETTE
+        Teal is the secondary/accent color for this app
+    -->
+    
+    <!-- Teal 200 - Light teal, used for accent elements -->
+    <color name="teal_200">#FF03DAC5</color>
+    
+    <!-- Teal 700 - Dark teal, used for secondary elements -->
+    <color name="teal_700">#FF018786</color>
+    
+    <!--
+        BASIC COLORS
+        Standard black and white colors for text and backgrounds
+    -->
+    
+    <!-- Pure black - used for text on light backgrounds -->
+    <color name="black">#FF000000</color>
+    
+    <!-- Pure white - used for text on dark backgrounds -->
+    <color name="white">#FFFFFFFF</color>
+    
+    <!--
+        ADDITIONAL COLORS FOR FUTURE USE:
+        
+        <color name="gray_100">#FFF5F5F5</color>  <!-- Very light gray -->
+        <color name="gray_300">#FFE0E0E0</color>  <!-- Light gray -->
+        <color name="gray_500">#FF9E9E9E</color>  <!-- Medium gray -->
+        <color name="gray_700">#FF616161</color>  <!-- Dark gray -->
+        <color name="gray_900">#FF212121</color>  <!-- Very dark gray -->
+        
+        <color name="red_500">#FFF44336</color>   <!-- Error/delete actions -->
+        <color name="green_500">#FF4CAF50</color> <!-- Success/confirm actions -->
+        <color name="blue_500">#FF2196F3</color>  <!-- Info/links -->
+        <color name="orange_500">#FFFF9800</color> <!-- Warning actions -->
+    -->
+</resources>

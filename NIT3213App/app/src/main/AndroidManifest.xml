@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    AndroidManifest.xml for NIT3213App
+    
+    This file is the "blueprint" of your Android application. It declares:
+    - What components your app has (activities, services, receivers, providers)
+    - What permissions your app needs
+    - What hardware/software features your app requires
+    - How your app can be launched and interacted with
+    
+    The Android system reads this file to understand your app's structure and capabilities.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        PERMISSIONS
+        Declare what permissions your app needs to function
+    -->
+    
+    <!-- Internet permission - required for API calls to NIT3213 API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Network state permission - allows checking network connectivity -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+        APPLICATION CONFIGURATION
+        This section defines the overall app configuration and properties
+    -->
+    <application
+        <!-- Application class for Hilt dependency injection -->
+        android:name=".App"
+        
+        <!-- Allow automatic backup of app data -->
+        android:allowBackup="true"
+        
+        <!-- Rules for data extraction during device-to-device transfers -->
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        
+        <!-- Rules for what data to include in automatic backups -->
+        android:fullBackupContent="@xml/backup_rules"
+        
+        <!-- App icon displayed on the home screen and app drawer -->
+        android:icon="@mipmap/ic_launcher"
+        
+        <!-- App name displayed under the icon and in settings -->
+        android:label="@string/app_name"
+        
+        <!-- Round icon for devices that support adaptive icons (Android 8.0+) -->
+        android:roundIcon="@mipmap/ic_launcher_round"
+        
+        <!-- Support for right-to-left languages (Arabic, Hebrew, etc.) -->
+        android:supportsRtl="true"
+        
+        <!-- Default theme applied to all activities in this app -->
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+        
+        <!-- Target API level for tools (used by Android Studio for linting) -->
+        tools:targetApi="31">
+        
+        <!--
+            MAIN ACTIVITY
+            This is the entry point of your application
+            Uses single-activity architecture with Navigation component
+        -->
+        <activity
+            <!-- Class name of the activity (relative to the package name) -->
+            android:name=".MainActivity"
+            
+            <!-- Whether this activity can be launched by other apps -->
+            android:exported="true"
+            
+            <!-- Theme applied specifically to this activity -->
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+            
+            <!--
+                INTENT FILTER
+                Defines how this activity can be launched
+            -->
+            <intent-filter>
+                <!-- This activity responds to the MAIN action -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- This activity appears in the launcher (home screen) -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

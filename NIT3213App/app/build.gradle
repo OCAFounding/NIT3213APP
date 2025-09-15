@@ -1,0 +1,238 @@
+/**
+ * App-level build.gradle for NIT3213App
+ * This file configures the specific build settings for the main app module
+ * It defines dependencies, build variants, and compilation options
+ * 
+ * Assignment Requirements:
+ * - Hilt dependency injection
+ * - Retrofit for API calls
+ * - Navigation component
+ * - Unit testing
+ * - Clean architecture
+ */
+
+// =============================================================================
+// PLUGINS
+// =============================================================================
+// Apply the necessary plugins for this module
+plugins {
+    // Android Application plugin - enables building this as an Android app
+    id 'com.android.application'
+    // Kotlin Android plugin - enables Kotlin language support
+    id 'org.jetbrains.kotlin.android'
+    // Kotlin annotation processing for Hilt and Moshi
+    id 'kotlin-kapt'
+    // Kotlin Parcelize for passing data between screens
+    id 'kotlin-parcelize'
+    // Hilt dependency injection plugin
+    id 'dagger.hilt.android.plugin'
+    // Navigation Safe Args for type-safe navigation
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+// =============================================================================
+// ANDROID CONFIGURATION
+// =============================================================================
+android {
+    // Package namespace - uniquely identifies your app
+    // This should match your package structure in the source code
+    namespace 'com.example.nit3213app'
+    
+    // Compile SDK version - the Android API level used to compile the app
+    // Use the latest stable version for access to newest features
+    compileSdk 35
+
+    // =============================================================================
+    // DEFAULT CONFIGURATION
+    // =============================================================================
+    defaultConfig {
+        // Application ID - unique identifier for your app on Google Play Store
+        // This must be unique across all apps and cannot be changed after publishing
+        applicationId "com.example.nit3213app"
+        
+        // Minimum SDK version - oldest Android version your app supports
+        // API 24 = Android 7.0 (Nougat) - covers ~95% of devices
+        minSdk 24
+        
+        // Target SDK version - the Android version your app is designed for
+        // Should be the latest stable version for best compatibility
+        targetSdk 35
+        
+        // Version information for app updates
+        versionCode 1        // Integer that increases with each release
+        versionName "1.0"    // User-visible version string
+
+        // Test runner for instrumented tests
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // =============================================================================
+    // BUILD TYPES
+    // =============================================================================
+    buildTypes {
+        // Release build - optimized version for production
+        release {
+            // Code shrinking disabled for simplicity
+            // Enable this in production to reduce APK size
+            minifyEnabled false
+            // ProGuard rules for code obfuscation and optimization
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        // Debug build is created automatically with debug settings
+    }
+    
+    // =============================================================================
+    // COMPILATION OPTIONS
+    // =============================================================================
+    compileOptions {
+        // Java version compatibility - using Java 17 for modern features
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    
+    // Kotlin compilation options
+    kotlinOptions {
+        // JVM target version for Kotlin compilation
+        jvmTarget = '17'
+    }
+    
+    // =============================================================================
+    // BUILD FEATURES
+    // =============================================================================
+    buildFeatures {
+        // Enable View Binding - modern way to access views without findViewById
+        // Generates binding classes for each layout file
+        viewBinding true
+    }
+}
+
+// =============================================================================
+// DEPENDENCIES
+// =============================================================================
+dependencies {
+    // =============================================================================
+    // CORE ANDROID LIBRARIES
+    // =============================================================================
+    
+    // Core KTX - Kotlin extensions for Android framework
+    // Provides convenient extension functions for common Android operations
+    implementation 'androidx.core:core-ktx:1.13.1'
+    
+    // AppCompat - provides backward compatibility for newer Android features
+    // Enables Material Design components on older Android versions
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    
+    // Material Design Components - Google's design system
+    // Provides pre-built UI components following Material Design guidelines
+    implementation 'com.google.android.material:material:1.12.0'
+    
+    // ConstraintLayout - flexible layout system
+    // Allows creating complex layouts with flat view hierarchy
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    
+    // =============================================================================
+    // LIFECYCLE AND VIEWMODEL
+    // =============================================================================
+    
+    // Lifecycle ViewModel - manages UI-related data
+    // Survives configuration changes (like screen rotation)
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4'
+    
+    // Lifecycle Runtime - for lifecycle-aware components
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.4'
+    
+    // =============================================================================
+    // NAVIGATION
+    // =============================================================================
+    
+    // Navigation Fragment - handles fragment navigation
+    // Provides consistent navigation patterns across the app
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.3'
+    
+    // Navigation UI - handles UI components for navigation
+    // Integrates with ActionBar, Toolbar, and BottomNavigationView
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.3'
+    
+    // =============================================================================
+    // UI COMPONENTS
+    // =============================================================================
+    
+    // RecyclerView - for displaying lists of data
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    
+    // =============================================================================
+    // COROUTINES
+    // =============================================================================
+    
+    // Kotlin Coroutines - for asynchronous programming
+    // Provides structured concurrency for background operations
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+    
+    // =============================================================================
+    // DATA STORAGE
+    // =============================================================================
+    
+    // DataStore Preferences - modern replacement for SharedPreferences
+    // Provides type-safe, asynchronous data storage
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
+    
+    // =============================================================================
+    // NETWORKING
+    // =============================================================================
+    
+    // Retrofit - HTTP client for API calls
+    // Makes it easy to consume REST APIs
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    
+    // Retrofit Moshi Converter - converts JSON to Kotlin objects
+    // Uses Moshi for JSON serialization/deserialization
+    implementation 'com.squareup.retrofit2:converter-moshi:2.11.0'
+    
+    // Moshi - JSON library for Kotlin
+    // Provides type-safe JSON parsing
+    implementation 'com.squareup.moshi:moshi-kotlin:1.15.1'
+    
+    // Moshi Codegen - generates adapters at compile time
+    // Improves performance and reduces reflection usage
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.15.1'
+    
+    // OkHttp Logging Interceptor - for debugging network calls
+    // Logs HTTP requests and responses for debugging
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+    
+    // =============================================================================
+    // DEPENDENCY INJECTION - HILT
+    // =============================================================================
+    
+    // Hilt Android - dependency injection framework
+    // Provides compile-time dependency injection
+    implementation 'com.google.dagger:hilt-android:2.52'
+    
+    // Hilt Android Compiler - generates DI code
+    // Processes annotations and generates dependency injection code
+    kapt 'com.google.dagger:hilt-android-compiler:2.52'
+    
+    // =============================================================================
+    // TESTING DEPENDENCIES
+    // =============================================================================
+    
+    // JUnit - unit testing framework
+    // Used for testing individual functions and classes
+    testImplementation 'junit:junit:4.13.2'
+    
+    // Kotlin Coroutines Test - testing utilities for coroutines
+    // Provides test dispatchers and utilities for testing async code
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1'
+    
+    // MockK - mocking framework for Kotlin
+    // Allows creating mock objects for testing
+    testImplementation 'io.mockk:mockk:1.13.12'
+    
+    // Android JUnit - Android-specific testing extensions
+    // Provides Android context for unit tests
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    
+    // Espresso - UI testing framework
+    // Used for testing user interactions and UI behavior
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
